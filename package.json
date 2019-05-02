@@ -1,6 +1,6 @@
 {
   "name": "ts-node-toolbox",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "src/index.js",
   "description": "Same as ts-react-toolbox but for Node.js",
   "scripts": {
