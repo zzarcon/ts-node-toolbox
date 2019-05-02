@@ -38,7 +38,7 @@ const buildES5 = (): Promise<void> => {
     writeFileSync(configPath, JSON.stringify(makeConfig(es5Config), null, ' '));
     // NODE_ENV=production
     const subprocess = spawn(tscBin, ['-p', configPath], {
-      env: {...process.env, FORCE_COLOR: true},
+      env: {...process.env, FORCE_COLOR: 'true'},
       stdio: 'inherit'
     });
 
@@ -53,7 +53,7 @@ const buildES2015 = () => {
     const configPath = path.resolve(__dirname, '../../tsconfig.es2015.json');
     writeFileSync(configPath, JSON.stringify(makeConfig(es2015Config), null, ' '));
     const subprocess = spawn(tscBin, ['-p', configPath], {
-      env: {...process.env, FORCE_COLOR: true},
+      env: {...process.env, FORCE_COLOR: 'true'},
       stdio: 'inherit'
     });
 

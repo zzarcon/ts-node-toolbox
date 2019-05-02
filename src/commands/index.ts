@@ -1,3 +1,6 @@
+export * from './build'
+export * from './dev'
 export * from './init'
 export * from './release'
+export * from './run'
 export * from './test'
