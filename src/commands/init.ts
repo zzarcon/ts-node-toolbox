@@ -31,8 +31,6 @@ const modifyPackage = async () => {
       release: 'ts-node-toolbox release'
     },
     main: 'dist/es5/index.js',
-    'jsnext:main': 'dist/es2015/index.js',
-    module: 'dist/es2015/index.js',
     types: 'dist/es5/index.d.ts',
     files: ['dist'],
     keywords: pkg.keywords || [],

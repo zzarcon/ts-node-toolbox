@@ -1,11 +1,10 @@
 import * as path from 'path';
 import { writeFileSync } from 'fs';
 import { spawn } from 'child_process';
-import {CompilerOptions, ScriptTarget, ModuleResolutionKind} from 'typescript';
+import {CompilerOptions} from 'typescript';
 import { binPath, green } from '../utils';
 
 const cwd = process.cwd();
-
 const es5Config: CompilerOptions = {
   importHelpers: true,
   noImplicitAny: true,
@@ -14,16 +13,8 @@ const es5Config: CompilerOptions = {
   outDir: `${cwd}/dist/es5`,
   lib: ['es6'],
   esModuleInterop: true,
-  target: ScriptTarget.ES5,
-  moduleResolution: ModuleResolutionKind.NodeJs
-};
-
-const es2015Config = {
-  ...es5Config,
-  "outDir": `${cwd}/dist/es2015`,
-    "lib": ["dom", "es6"],
-    "module": "es2015",
-    "moduleResolution": "node"
+  target: 'es5' as any,
+  moduleResolution: 'node' as any
 };
 
 const makeConfig = (options:any) => ({
@@ -48,25 +39,9 @@ const buildES5 = (): Promise<void> => {
   });
 };
 
-const buildES2015 = () => {
-  return new Promise((resolve) => {
-    green('Creating ES2015 dist 🌟🌟');
-
-    const configPath = path.resolve(__dirname, '../../tsconfig.es2015.json');
-    writeFileSync(configPath, JSON.stringify(makeConfig(es2015Config), null, ' '));
-    const subprocess = spawn(tscBin, ['-p', configPath], {
-      env: {...process.env, FORCE_COLOR: 'true'},
-      stdio: 'inherit'
-    });
-
-    subprocess.on('exit', resolve);
-  });
-};
-
 export const build = async () => {
   try {
     await buildES5();
-    await buildES2015();
   } catch (e) {
     console.log(e);
     process.exit(1);

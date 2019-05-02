@@ -36,7 +36,6 @@
     "preprocessor.js",
     "tsconfig.json",
     "tsconfig.es5.json",
-    "tsconfig.es2015.json",
     "configs"
   ],
   "repository": "git@github.com:zzarcon/ts-node-toolbox.git",
