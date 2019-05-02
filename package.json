@@ -5,6 +5,7 @@
   "description": "Same as ts-react-toolbox but for Node.js",
   "scripts": {
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "add_permission": "chmod +x ./bin/ts-node-toolbox.js",
     "cli": "./bin/ts-node-toolbox.js",
     "ts:cli": "yarn tsc && yarn cli",
