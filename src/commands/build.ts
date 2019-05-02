@@ -1,19 +1,21 @@
 import * as path from 'path';
 import { writeFileSync } from 'fs';
 import { spawn } from 'child_process';
+import {CompilerOptions, ScriptTarget, ModuleResolutionKind} from 'typescript';
 import { binPath, green } from '../utils';
 
 const cwd = process.cwd();
 
-const es5Config = {
-  "importHelpers": true,
-  "noImplicitAny": true,
-  "removeComments": true,
-  "declaration": true,
-  "outDir": `${cwd}/dist/es5`,
-  "lib": ["dom", "es6"],
-  "target": "es5",
-  "moduleResolution": "node"
+const es5Config: CompilerOptions = {
+  importHelpers: true,
+  noImplicitAny: true,
+  removeComments: true,
+  declaration: true,
+  outDir: `${cwd}/dist/es5`,
+  lib: ['es6'],
+  esModuleInterop: true,
+  target: ScriptTarget.ES5,
+  moduleResolution: ModuleResolutionKind.NodeJs
 };
 
 const es2015Config = {
