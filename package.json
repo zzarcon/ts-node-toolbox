@@ -1,0 +1,44 @@
+{
+  "name": "ts-node-toolbox",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "description": "Same as ts-react-toolbox but for Node.js",
+  "scripts": {
+    "build": "tsc",
+    "add_permission": "chmod +x ./bin/ts-node-toolbox.js",
+    "cli": "./bin/ts-node-toolbox.js",
+    "ts:cli": "yarn tsc && yarn cli",
+    "rename_bin": "mv bin/ts-node-toolbox.js bin/ts-node-toolbox",
+    "release": "npm version patch && git push --tags && git push && npm publish",
+    "clean": "rm -rf src/**/*.js",
+    "prepublishOnly": "yarn clean && yarn build && yarn rename_bin"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.8",
+    "chalk": "^2.3.2",
+    "jest": "^24.5.0",
+    "ts-node": "^8.1.0",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "tslib": "^1.9.3",
+    "typescript": "^3.3.4000"
+  },
+  "bin": {
+    "ts-node-toolbox": "./bin/ts-node-toolbox"
+  },
+  "files": [
+    "src",
+    "bin",
+    "static",
+    "static/.travis.yml",
+    "jest.config.js",
+    "preprocessor.js",
+    "tsconfig.json",
+    "tsconfig.es5.json",
+    "tsconfig.es2015.json",
+    "configs"
+  ],
+  "repository": "git@github.com:zzarcon/ts-node-toolbox.git",
+  "author": "Hector Leon Zarco Garcia <hezarco@gmail.com>",
+  "license": "MIT"
+}
