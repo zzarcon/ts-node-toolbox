@@ -23,10 +23,11 @@ const modifyPackage = async () => {
     },
     scripts: {
       ...pkg.scripts,
-      bootstrap: 'ts-node-toolbox init', // Calling it "init" will conflict with default "yarn init" command
+      bootstrap: 'ts-node-toolbox init',
+      typecheck: "tsc --project tsconfig.json --noEmit",
       dev: 'ts-node-toolbox dev',
       test: 'ts-node-toolbox test',
-      'test:ci': 'ts-node-toolbox test --runInBand --coverage', // TODO: better just ts-node-toolbox test:ci
+      'test:ci': 'ts-node-toolbox test --runInBand --coverage',
       build: 'ts-node-toolbox build',
       release: 'ts-node-toolbox release'
     },

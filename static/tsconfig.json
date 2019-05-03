@@ -1,17 +1,14 @@
 {
   "compilerOptions": {
     "strict": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
     "removeComments": true,
     "importHelpers": true,
+    "esModuleInterop": true,
     "target": "es5",
     "lib": [
       "es5",
@@ -22,6 +19,9 @@
       "es2015.promise"
     ]
   },
+  "include": [
+    "src/**/*.ts"
+  ],
   "files": [
     "./custom-typings/typings.d.ts"
   ]
